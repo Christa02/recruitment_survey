@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="hr_applicant_recruitment_view_form_inherit" model="ir.ui.view">
+        <field name="name">hr.applicant.recruitment.form.inherit</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='archive_applicant']" position="after">
+                <button name="action_send_survey" string="Send Email" type="object" invisible="not active or not recruitment_survey_id"/>
+            </xpath>
+            <xpath expr="//field[@name='job_id']" position="before">
+                <field name="recruitment_survey_id"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
